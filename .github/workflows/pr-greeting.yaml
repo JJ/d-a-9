@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Greeter"
-        uses: JJ/pr-greeting-action@releases/v0
+        uses: JJ/pr-greeting-action@releases/v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           pr-message: "Hey **#** welcome to this repo"
