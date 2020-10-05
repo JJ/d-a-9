@@ -2,7 +2,7 @@ name: "Checks loop"
 on: [push]
 
 jobs:
-  pr-greeter:
+  check_group_loop:
     runs-on: ubuntu-latest
     steps:
       - name: Use Node.js
@@ -13,7 +13,7 @@ jobs:
               function loop(name) {
                   core.startGroup(name);
                   for (var i = 0; i < 10; i++) {
-                      core.info('[INFO] {${name}}: ${i} { type = log, task = ${name} }');
+                      core.info("[INFO] {${name}}: ${i} { type = log, task = ${name} }");
                  }
                  core.endGroup();
               }
