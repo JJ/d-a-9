@@ -5,8 +5,20 @@ jobs:
   pr-greeter:
     runs-on: ubuntu-latest
     steps:
-      - name: "Greeter"
-        uses: JJ/issue-greeting-action@releases/v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          greeting: "Hey **#** welcome to this repo"
+          node-version: '12.x'
+      - name: "Loop"
+        run: |
+          const core = require('@actions/core')
+          function loop(name) {
+              core.startGroup(name);
+              for (var i = 0; i < 10; i++) {
+                  core.info(`[INFO] {${name}}: ${i} { type = log, task = ${name} }`);
+             }
+             core.endGroup();
+        }
+
+        loop('a');
+        loop('b');
