@@ -7,14 +7,16 @@ jobs:
     steps:
       - name: Use Node.js
         uses: actions/github-script@v3
-        script: |
-          function loop(name) {
-              core.startGroup(name);
-              for (var i = 0; i < 10; i++) {
-                  core.info(`[INFO] {${name}}: ${i} { type = log, task = ${name} }`);
-             }
-             core.endGroup();
-          }
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+              function loop(name) {
+                  core.startGroup(name);
+                  for (var i = 0; i < 10; i++) {
+                      core.info('[INFO] {${name}}: ${i} { type = log, task = ${name} }');
+                 }
+                 core.endGroup();
+              }
 
-          loop('a');
-          loop('b');
+              loop('a');
+              loop('b');
