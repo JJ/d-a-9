@@ -1,5 +1,5 @@
-name: "Issues Greeter"
-on: [issues]
+name: "Checks loop"
+on: [push]
 
 jobs:
   pr-greeter:
@@ -18,7 +18,7 @@ jobs:
                   core.info(`[INFO] {${name}}: ${i} { type = log, task = ${name} }`);
              }
              core.endGroup();
-        }
+          }
 
-        loop('a');
-        loop('b');
+          loop('a');
+          loop('b');
